@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-dune build ./server/bin/main.exe -w  --terminal-persistence=clear-on-rebuild
+dune build client client/main.bc.js -w --terminal-persistence=clear-on-rebuild

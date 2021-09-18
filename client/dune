@@ -1,8 +1,23 @@
 (executables
  (names main)
  (modes js)
- (libraries async_kernel async_js core_kernel.composition_infix
-   core_kernel.core bonsai.web bonsai_chat_open_source_common
-   virtual_dom.input_widgets)
+ (libraries
+  async_kernel
+  virtual_dom.svg
+  async_js
+  core_kernel.composition_infix
+  core_kernel.core
+  bonsai.web
+  bonsai_chat_open_source_common
+  virtual_dom.input_widgets)
  (preprocess
   (pps js_of_ocaml-ppx ppx_jane)))
+
+(rule
+ (alias default)
+ (targets index.html style.css)
+ (deps index_.html style_.css)
+ (action
+  (progn
+   (copy style_.css style.css)
+   (copy index_.html index.html))))
